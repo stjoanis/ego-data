@@ -1,0 +1,4 @@
+https://unix.stackexchange.com/questions/440260/gnu-pattern-match-and-replace-exact-number-of-characters
+
+echo 'dlkfhfd|fedfe|dfwe3f347fde|3745978|dlkfhr**|376663781736102|**fedfe|dfwe3f347fde' | sed 's/|37[0-9]\{13\}|/|37xxxxxxxxxxxxx|/g'
+echo 'dlkfhfd|fedfe|dfwe3f347fde|3745978|dlkfhr**|376663781736102|**fedfe|dfwe3f347fde' | sed 's/|37[[:digit:]]\{13\}|/|37xxxxxxxxxxxxx|/g'
