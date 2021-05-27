@@ -1,4 +1,4 @@
-# 2020-09-25 : sf
+# 2021-05-27 : sf
 if [ $TERM == dumb ];then return 0;fi
 TPUT=/usr/bin/tput;CBLUE=`$TPUT setaf 4`;CRED=`$TPUT setaf 1`;CNORMAL=`$TPUT op`
 alias wh='alias | /usr/bin/which --tty-only --read-alias --show-tilde'
