@@ -1,0 +1,7 @@
+set smtp=smtps://smtp.gmail.com:465
+set smtp-auth=login
+set smtp-auth-user=stjoanis.pop@gmail.com
+set smtp-auth-password=pwxacelcylmswrnn
+set ssl-verify=ignore
+set nss-config-dir=/etc/pki/nssdb/
+set ttycharset=utf8
