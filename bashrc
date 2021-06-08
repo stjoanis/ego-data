@@ -11,14 +11,9 @@ alias rm=? x+='chmod +x' m=more l.='ls -ald .*' ..='cd ..' ct='column -t' f_=fir
 if [ `uname` == "Linux" ]
 then # Linux
 alias vi=vim l='ls -lh --color' lt='l -rth' lS='lt -S' grep='grep --color' gi='grep -i' gx='grep -v "^$\|^#"'
-fl(){ find $(pwd -P) -type f -name "*$1*" -exec ls -lh --time-style=long-iso {} \; | sort -k 6,7 | ct;}
+fl(){ find $PWD -type f -not -path '*/\.*' -printf '%TY/%Tm/%Td %TH:%TM %Ta %p\n' |sort -n;}
 ff(){ if [ $# -eq 1 ];then STR=$1;C_C=always;else STR=.;C_C=never;fi;RPWD=$(pwd -P)
 find $RPWD \( -type f -o -type l -o -type d \) -name "*$1*"|sed "s#$RPWD\(.*\)#$CBLUE$PWD$CNORMAL\1#g"|grep --color=$C_C "$1";}
-else # Solaris
-export TERM=vt100;alias l='ls -lh' lt='l -rt';stty columns 160
-#fl(){ find $PWD -type f -name "*$1*" -print | xargs ls -lrt;}
-alias fl="find $PWD -type f -print0 | xargs -0 stat --format '%Y %y %n' | sed 's/\.[[:digit:]]\{9\} +[[:digit:]]\{4\}//' |sort"
-ff(){ if [ $# -eq 1 ];then STR=$1;else STR=.;fi;find $(pwd -P) \( -type f -o -type l -o -type d \) -name "*$1*";}
 fi
 export EDITOR=vi HISTSIZE=1000 HISTCONTROL=ignoreboth HST=`hostname|awk -F'.' '{print $1}'`
 export CCC=2
